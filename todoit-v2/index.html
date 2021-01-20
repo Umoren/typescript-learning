@@ -2,7 +2,6 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>TodoIt</title>
     </head>
 
@@ -14,12 +13,11 @@
             <input
                 type="text"
                 id="todoInput"
-                title="What should be added to
-        the todo list?"
-                onblur="addTodo()"
-
+                title="What should be added to the todo list?"
+                onkeyup="if(EventUtils.isEnter(event)) { todoIt.addTodo() }"
+                onblur="todoIt.addTodo()"
             />
-            <input type="button" value="Add todo" />
+            <input type="button" value="Add todo" onclick="todoIt.addTodo()" />
         </p>
         <h2>Current todo list</h2>
         <p>
@@ -27,15 +25,12 @@
             <input
                 type="text"
                 id="todoFilter"
-                title="Filter for the
-    todo list"
-            onkeyup="filterTodoList()"
-            onblur="filterTodoList()"
-
+                title="Filter for the todo list"
+                onkeyup="todoIt.filterTodoList()"
+                onblur="todoIt.filterTodoList()"
             />
         </p>
         <div id="todoListContainer">Nothing to do, hurray!</div>
-
-        <script src="todo-it.js"> </script>
+        <script type="text/javascript" src="todo-it.js"></script>
     </body>
 </html>
